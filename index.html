@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>GSMFIX Training Center | প্রফেশনাল মোবাইল সার্ভিসিং কোর্স</title>
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  
+  <style>
+    :root {
+      /* Orange & Black Theme */
+      --primary: #ff6b00;       /* Vibrant Orange */
+      --primary-hover: #e65100; /* Darker Orange */
+      --bg-dark: #121212;       /* Main Background */
+      --bg-card: #1e1e1e;       /* Card Background */
+      --text-main: #ffffff;     /* White Text */
+      --text-muted: #b0b0b0;    /* Gray Text */
+      --border: #333333;
+      --success: #00c853;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
+
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; }
+
+    /* Utilities */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .text-orange { color: var(--primary); }
+    .text-center { text-align: center; }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
+
+    /* Header */
+    header {
+      background: rgba(18, 18, 18, 0.95);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: white; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a:hover { color: var(--primary); }
+
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.3; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+
+    /* Features Grid */
+    .features { padding: 60px 0; }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+    .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
+
+    /* Pricing */
+    .pricing { padding: 60px 0; background: #0a0a0a; }
+    .price-box {
+      background: var(--bg-card);
+      border: 2px solid var(--primary);
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; }
+    .new-price { font-size: 3rem; font-weight: 700; color: var(--primary); margin: 10px 0; }
+    .price-list { text-align: left; margin: 30px 0; }
+    .price-list li { margin-bottom: 10px; color: var(--text-muted); }
+    .price-list i { color: var(--success); margin-right: 10px; }
+
+    /* Curriculum */
+    .curriculum { padding: 60px 0; }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .topic-item {
+      background: var(--bg-card);
+      padding: 15px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      border-left: 3px solid var(--primary);
+    }
+    .topic-item i { color: var(--primary); margin-right: 15px; }
+
+    /* Form Section */
+    .registration { padding: 60px 0; background: #0a0a0a; }
+    .form-container {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); }
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      background: #121212;
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    .form-control:focus { outline: none; border-color: var(--primary); }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .nav-links { display: none; } /* Simplified for mobile example */
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container nav-flex">
+      <div class="logo">GSMFIX <span>Training</span></div>
+      <nav class="nav-links">
+        <a href="#home">হোম</a>
+        <a href="#curriculum">কোর্স কারিকুলাম</a>
+        <a href="#reviews">রিভিউ</a>
+        <a href="#contact">যোগাযোগ</a>
+      </nav>
+      <a href="#register" class="btn">জয়েন করুন</a>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero" id="home">
+    <div class="container">
+      <h1>ক্যারিয়ার গড়ুন <span class="text-orange">GSMFIX</span> এর সাথে<br>মোবাইল সার্ভিসিংয়ে নিজেকে প্রতিষ্ঠিত করুন!</h1>
+      <p>বাংলাদেশের সেরা অনলাইন মোবাইল সার্ভিসিং কোর্স। হার্ডওয়্যার থেকে সফটওয়্যার – সবকিছু শিখুন এক ছাদের নিচে। লাইফটাইম এক্সেস এবং প্রিমিয়াম সাপোর্ট।</p>
+      <a href="#register" class="btn">এখনই রেজিস্ট্রেশন করুন</a>
+    </div>
+  </section>
+
+  <!-- Why Choose Us -->
+  <section class="features">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">কেন GSMFIX মেম্বারশিপ নেবেন?</h2>
+        <p class="section-subtitle">আমরা শুধু কোর্স করাই না, ক্যারিয়ার গড়তে সাহায্য করি</p>
+      </div>
+      <div class="grid-3">
+        <div class="card">
+          <i class="fas fa-video"></i>
+          <h3>লাইফটাইম রেকর্ডেড ক্লাস</h3>
+          <p>যেকোনো সময়, যতবার খুশি ক্লাস দেখুন। আমাদের ভিডিওগুলো লাইফটাইম আপনার অ্যাকাউন্টে থাকবে।</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-headset"></i>
+          <h3>প্রিমিয়াম সাপোর্ট</h3>
+          <p>কাজ করতে গিয়ে আটকে গেলে? আমাদের এক্সপার্ট টিম ২৪/৭ সাপোর্ট দিতে প্রস্তুত।</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-server"></i>
+          <h3>আনলক সার্ভার এক্সেস</h3>
+          <p>মেম্বাররা পাবেন আমাদের প্রাইভেট সার্ভার এক্সেস, যেখান থেকে টুলস এক্টিভেশন ও IMEI সার্ভিস নেওয়া যাবে।</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-chalkboard-teacher"></i>
+          <h3>লাইভ জুম ক্লাস</h3>
+          <p>প্রতি সপ্তাহে লাইভ ক্লাস যেখানে সরাসরি মেন্টরের সাথে প্রশ্নোত্তর করার সুযোগ পাবেন।</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-book"></i>
+          <h3>স্পেশাল ই-বুক</h3>
+          <p>প্রতিটি টপিকের জন্য বিস্তারিত নোটস এবং ই-বুক যা আপনি ডাউনলোড করে রাখতে পারবেন।</p>
+        </div>
+        <div class="card">
+          <i class="fas fa-certificate"></i>
+          <h3>সার্টিফিকেট</h3>
+          <p>কোর্স সম্পন্ন করার পর আপনি পাবেন একটি প্রফেশনাল সার্টিফিকেট।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="pricing">
+    <div class="container">
+      <div class="price-box">
+        <h3>GSMFIX মেম্বারশিপ</h3>
+        <p class="old-price">রেগুলার প্রাইস: ৳১৫,০০০</p>
+        <div class="new-price">৳২,৯৯৯</div>
+        <p>সীমিত সময়ের অফার!</p>
+        <ul class="price-list">
+          <li><i class="fas fa-check"></i> হার্ডওয়্যার ও সফটওয়্যার ফুল কোর্স</li>
+          <li><i class="fas fa-check"></i> লাইফটাইম ভিডিও এক্সেস</li>
+          <li><i class="fas fa-check"></i> প্রিমিয়াম সাপোর্ট গ্রুপ</li>
+          <li><i class="fas fa-check"></i> টুলস এক্টিভেশন গাইডলাইন</li>
+        </ul>
+        <a href="#register" class="btn" style="width: 100%;">এখনই কিনুন</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Curriculum -->
+  <section class="curriculum" id="curriculum">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">যা যা শিখতে পারবেন</h2>
+        <p class="section-subtitle">বেসিক থেকে এডভান্স লেভেল পর্যন্ত সম্পূর্ণ গাইডলাইন</p>
+      </div>
+      <div class="curriculum-grid">
+        <div class="topic-item"><i class="fas fa-microchip"></i> মোবাইল হার্ডওয়্যার বেসিক টু এডভান্স</div>
+        <div class="topic-item"><i class="fas fa-laptop-code"></i> সফটওয়্যার ফ্ল্যাশিং ও আনলক</div>
+        <div class="topic-item"><i class="fas fa-soldering-iron"></i> আইসি রিবলিং ও মাইক্রো সোল্ডারিং</div>
+        <div class="topic-item"><i class="fas fa-battery-full"></i> ব্যাটারি ও চার্জিং সমস্যা সমাধান</div>
+        <div class="topic-item"><i class="fas fa-mobile-alt"></i> ডেড ফোন রিকভারি</div>
+        <div class="topic-item"><i class="fas fa-unlock"></i> FRP বাইপাস (সকল ব্র্যান্ড)</div>
+        <div class="topic-item"><i class="fas fa-apple"></i> আইফোন আনলক ও iCloud রিমুভাল</div>
+        <div class="topic-item"><i class="fas fa-network-wired"></i> নেটওয়ার্ক ও সিগন্যাল সমস্যা</div>
+        <div class="topic-item"><i class="fas fa-camera"></i> ক্যামেরা ও সেন্সর রিপেয়ার</div>
+        <div class="topic-item"><i class="fas fa-tools"></i> প্রফেশনাল টুলস ব্যবহার (Box/Dongle)</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Registration Form -->
+  <section class="registration" id="register">
+    <div class="container">
+      <div class="text-center">
+        <h2 class="section-title">রেজিস্ট্রেশন ফর্ম</h2>
+        <p class="section-subtitle">নিচের ফর্মটি পূরণ করে এখনই আপনার স্থান নিশ্চিত করুন</p>
+      </div>
+      <div class="form-container">
+        <form>
+          <div class="form-group">
+            <label>পুরো নাম</label>
+            <input type="text" class="form-control" placeholder="আপনার নাম লিখুন" required>
+          </div>
+          <div class="form-group">
+            <label>মোবাইল নাম্বার</label>
+            <input type="tel" class="form-control" placeholder="017xxxxxxxx" required>
+          </div>
+          <div class="form-group">
+            <label>ইমেইল এড্রেস</label>
+            <input type="email" class="form-control" placeholder="example@email.com" required>
+          </div>
+          <div class="form-group">
+            <label>পাসওয়ার্ড তৈরি করুন</label>
+            <input type="password" class="form-control" required>
+          </div>
+          
+          <div style="background: #121212; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid var(--border);">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+              <span>GSMFIX মেম্বারশিপ</span>
+              <span class="text-orange">৳২,৯৯৯</span>
+            </div>
+            <div style="display: flex; justify-content: space-between; font-weight: bold; border-top: 1px solid #333; paddingTop: 10px;">
+              <span>মোট</span>
+              <span class="text-orange">৳২,৯৯৯</span>
+            </div>
+          </div>
+
+          <button type="submit" class="btn" style="width: 100%;">সাবমিট করুন</button>
+          <p style="margin-top: 15px; font-size: 0.9rem; color: #888; text-align: center;">পেমেন্ট মেথড: বিকাশ / নগদ / ব্যাংক (অফলাইন)</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <div class="container">
+      <p>&copy; 2026 GSMFIX Training Center. সর্বস্বত্ব সংরক্ষিত।</p>
+      <p>মোবাইল: 017xxxxxxxx | ইমেইল: support@gsmfixtraining.com</p>
+    </div>
+  </footer>
+
+</body>
+</html>
