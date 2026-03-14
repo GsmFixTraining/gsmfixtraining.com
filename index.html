@@ -342,44 +342,49 @@ Special PDF,
 
   <!-- Registration Form -->
   <section class="registration" id="register">
-    <div class="container">
-      <div class="text-center">
-        <h2 class="section-title">রেজিস্ট্রেশন ফর্ম</h2>
-        <p class="section-subtitle">নিচের ফর্মটি পূরণ করে এখনই আপনার স্থান নিশ্চিত করুন</p>
-      </div>
-      <div class="form-container">
-        <form>
-          <div class="form-group">
-            <label>পুরো নাম</label>
-            <input type="text" class="form-control" placeholder="আপনার নাম লিখুন" required>
-          </div>
-          <div class="form-group">
-            <label>মোবাইল নাম্বার</label>
-            <input type="tel" class="form-control" placeholder="017xxxxxxxx" required>
-          </div>
-          <div class="form-group">
-            <label>ইমেইল এড্রেস</label>
-            <input type="email" class="form-control" placeholder="example@email.com" required>
-         
-          </div>
-          
-          <div style="background: #121212; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid var(--border);">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-              <span>GSMFIX মেম্বারশিপ</span>
-              <span class="text-orange">Free</span>
-            </div>
-            <div style="display: flex; justify-content: space-between; font-weight: bold; border-top: 1px solid #333; paddingTop: 10px;">
-              <span>মোট</span>
-              <span class="text-orange">Free</span>
-            </div>
-          </div>
-
-          <button type="submit" class="btn" style="width: 100%;">সাবমিট করুন</button>
-          <p style="margin-top: 15px; font-size: 0.9rem; color: #888; text-align: center;">পেমেন্ট মেথড: বিকাশ / নগদ / ব্যাংক (অফলাইন)</p>
-        </form>
-      </div>
+  <div class="container">
+    <div class="text-center">
+      <h2 class="section-title">রেজিস্ট্রেশন ফর্ম</h2>
+      <p class="section-subtitle">নিচের ফর্মটি পূরণ করে এখনই আপনার স্থান নিশ্চিত করুন</p>
     </div>
-  </section>
+    <div class="form-container">
+      <!-- Google Form action এবং field names যুক্ত করা হলো -->
+      <form action="https://docs.google.com/forms/d/e/1FAIpQLSfc3jDBW_lFI4nFYrvdVwHGj8OPJu2qOPXJSpIXSwYvWw0XkA/formResponse" method="POST" target="_blank">
+        
+        <div class="form-group">
+          <label>পুরো নাম</label>
+          <input type="text" name="entry.1171067942" class="form-control" placeholder="আপনার নাম লিখুন" required>
+        </div>
+        
+        <div class="form-group">
+          <label>মোবাইল নাম্বার</label>
+          <input type="tel" name="entry.248864035" class="form-control" placeholder="017xxxxxxxx" required>
+        </div>
+        
+        <div class="form-group">
+          <label>ইমেইল এড্রেস</label>
+          <input type="email" name="entry.857162891" class="form-control" placeholder="example@email.com" required>
+        </div>
+        
+        <div style="background: #121212; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid var(--border);">
+          <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
+            <span>GSMFIX মেম্বারশিপ</span>
+            <span class="text-orange">Free</span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-weight: bold; border-top: 1px solid #333; padding-top: 10px;">
+            <span>মোট</span>
+            <span class="text-orange">Free</span>
+          </div>
+        </div>
+
+        <button type="submit" class="btn" style="width: 100%;">সাবমিট করুন</button>
+        <p style="margin-top: 15px; font-size: 0.9rem; color: #888; text-align: center;">
+          পেমেন্ট মেথড: বিকাশ / নগদ / ব্যাংক (অফলাইন)
+        </p>
+      </form>
+    </div>
+  </div>
+</section>
 
   <!-- Footer -->
   <footer>
