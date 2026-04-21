@@ -337,6 +337,37 @@ margin-top:14px;
       .hero h1 { font-size: 1.8rem; }
       .nav-links { display: none; } /* Simplified for mobile example */
     }
+     /* CSS */
+.custom-dot-cursor {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 8px;
+  height: 8px;
+  background: #000;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
+  mix-blend-mode: difference; /* Automatically inverts on light/dark backgrounds */
+}
+
+.custom-dot-cursor.hover {
+  width: 18px;
+  height: 18px;
+  background: #fff;
+}
+
+/* Hide OS cursor only on desktop/mouse devices */
+@media (pointer: fine) {
+  body, a, button, [data-cursor-hover] { cursor: none; }
+}
+
+/* Disable for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .custom-dot-cursor { display: none; }
+}
   </style>
   <!-- Meta Pixel Code -->
 <script>
@@ -381,6 +412,41 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
   </div>
  <!-- 🔹 JavaScript -->
   <script>
+     // JS
+(function() {
+  const cursor = document.querySelector('.custom-dot-cursor');
+  if (!cursor || !window.matchMedia('(pointer: fine)').matches) return;
+
+  let mouseX = 0, mouseY = 0;
+  let cursorX = 0, cursorY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  // Smooth follow using linear interpolation (lerp)
+  function animate() {
+    const speed = 0.15; // Lower = smoother/slower, Higher = snappier
+    cursorX += (mouseX - cursorX) * speed;
+    cursorY += (mouseY - cursorY) * speed;
+
+    cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
+    requestAnimationFrame(animate);
+  }
+  requestAnimationFrame(animate);
+
+  // Hover detection via event delegation (works with dynamically added elements)
+  document.addEventListener('pointerover', (e) => {
+    if (e.target.closest('a, button, input, textarea, select, [data-cursor-hover]')) {
+      cursor.classList.add('hover');
+    }
+  });
+  document.addEventListener('pointerout', (e) => {
+    if (e.target.closest('a, button, input, textarea, select, [data-cursor-hover]')) {
+      cursor.classList.remove('hover');
+    }
+  });
     function toggleMenu() {
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('active');
