@@ -258,43 +258,9 @@ body{
 </div>
 
 <!-- TIMER -->
- <div class="offer-box">
-  <h3>🔥 ইতিমধ্যে ভর্তি হয়েছে</h3>
-  <div id="enrollCount">47</div> <!-- এখানে number change করবে -->
-</div>
- <div class="offer-box">
-  <p id="countdown"></p>
+<div class="offer-box">
   <h3>🔥 অফার শেষ হতে বাকি</h3>
-  <script>
-// Set the date we're counting down to
-var countDownDate = new Date("april 25, 2026 15:37:25").getTime();
-
-// Update the count down every 1 second
-var x = setInterval(function() {
-
-  // Get today's date and time
-  var now = new Date().getTime();
-    
-  // Find the distance between now and the count down date
-  var distance = countDownDate - now;
-    
-  // Time calculations for days, hours, minutes and seconds
-  var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-  var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-  var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-  var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-  // Output the result in an element with id="demo"
-  document.getElementById("demo").innerHTML = days + "d " + hours + "h "
-  + minutes + "m " + seconds + "s ";
-    
-  // If the count down is over, write some text 
-  if (distance < 0) {
-    clearInterval(x);
-    document.getElementById("demo").innerHTML = "EXPIRED";
-  }
-}, 1000);
-</script>
+  <div id="countdown">00:00:00</div>
 </div>
 
 <!-- ================= FAQ ITEMS (100% SAME - NO CHANGE) ================= -->
@@ -396,7 +362,7 @@ function toggleMenu(){
 }
 
 // Timer
-let end=new Date().getTime()+86400000;
+let end=new Date(April 25, 2026 23:59:59 ).getTime()+86400000;
 setInterval(()=>{
   let now=new Date().getTime();
   let diff=end-now;
