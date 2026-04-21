@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<script type="application/ld+json">
+{
+ "@context": "https://schema.org",
+ "@type": "FAQPage",
+ "mainEntity": []
+}
+</script>
+<title>GSMFIX Training Center - Mobile Servicing Course FAQ</title>
+<meta name="description" content="মোবাইল সার্ভিসিং কোর্স সম্পর্কিত সকল প্রশ্ন ও উত্তর - GSMFIX Training Center">
+
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GSMFIX FAQ</title>
+
+<style>
+:root {
+  --primary:#ff6b00;
+  --bg-dark:#121212;
+  --bg-card:#1e1e1e;
+  --text-main:#fff;
+  --text-muted:#b0b0b0;
+  --border:#333;
+}
+
+body{
+  font-family: Arial;
+  background:var(--bg-dark);
+  color:var(--text-main);
+  margin:0;
+}
+
+/* ================= NAVBAR ================= */
+.navbar{
+  position:sticky;
+  top:0;
+  background:#121212;
+  border-bottom:1px solid #333;
+  z-index:1000;
+}
+
+.nav-flex{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:12px 20px;
+  max-width:1100px;
+  margin:auto;
+}
+
+.logo{
+  font-size:20px;
+  font-weight:bold;
+  color:white;
+}
+.logo span{ color:var(--primary); }
+
+.nav-links{
+  display:flex;
+  gap:18px;
+}
+
+.nav-links a{
+  color:#ddd;
+  text-decoration:none;
+  font-size:15px;
+}
+
+.nav-links a:hover{
+  color:var(--primary);
+}
+
+.nav-btn{
+  background:var(--primary);
+  color:white;
+  padding:8px 14px;
+  border-radius:6px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
+/* Mobile */
+.menu-toggle{
+  display:none;
+  font-size:26px;
+  cursor:pointer;
+  color:white;
+}
+
+@media(max-width:768px){
+  .nav-links{
+    display:none;
+    position:absolute;
+    top:60px;
+    left:0;
+    width:100%;
+    background:#121212;
+    flex-direction:column;
+    padding:10px 0;
+    border-top:1px solid #333;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .nav-links a{
+    padding:12px 20px;
+  }
+
+  .menu-toggle{
+    display:block;
+  }
+}
+
+/* FAQ Section */
+.faq{padding:60px 20px;}
+.container{max-width:900px;margin:auto;}
+.section-title{text-align:center;font-size:2rem;}
+.section-subtitle{text-align:center;color:var(--text-muted);margin-bottom:30px;}
+
+/* Video */
+.video-box{ width:100%; margin-bottom:30px; }
+.video-box iframe{ width:100%; height:300px; border-radius:10px; }
+
+/* Offer */
+.offer-box{
+  text-align:center;
+  border:1px solid var(--primary);
+  padding:20px;
+  border-radius:10px;
+  margin-bottom:30px;
+  background:var(--bg-card);
+}
+#countdown{
+  font-size:2rem;
+  color:var(--primary);
+  font-weight:bold;
+}
+
+/* FAQ */
+.faq-item{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+.faq-question{
+  width:100%;
+  padding:18px;
+  background:none;
+  border:none;
+  color:white;
+  text-align:left;
+  display:flex;
+  justify-content:space-between;
+  cursor:pointer;
+}
+
+.faq-answer{
+  max-height:0;
+  overflow:hidden;
+  transition:0.3s;
+  padding:0 18px;
+}
+
+.faq-answer p{
+  color:var(--text-muted);
+  white-space:pre-line;
+}
+
+/* CTA */
+.faq-cta{text-align:center;margin-top:40px;}
+.btn{
+  background:var(--primary);
+  padding:12px 20px;
+  color:white;
+  text-decoration:none;
+  border-radius:5px;
+  display:inline-block;
+  margin:10px;
+}
+
+/* Sticky */
+.sticky-btn{
+  position:fixed;
+  bottom:20px;
+  left:20px;
+  background:#ff6b00;
+  padding:15px 20px;
+  color:white;
+  border-radius:50px;
+  font-weight:bold;
+  z-index:999;
+  animation:pulse 2s infinite;
+}
+
+.whatsapp-float{
+  position:fixed;
+  right:20px;
+  bottom:20px;
+  background:#25D366;
+  width:60px;
+  height:60px;
+  border-radius:50%;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  color:white;
+  font-size:30px;
+  z-index:999;
+  animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(255,107,0,0.7);}
+  70%{box-shadow:0 0 0 15px rgba(255,107,0,0);}
+  100%{box-shadow:0 0 0 0 rgba(255,107,0,0);}
+}
+</style>
+</head>
+
+<body>
+
+<!-- ================= NAVBAR ================= -->
+<div class="navbar">
+  <div class="nav-flex">
+
+    <div class="logo">GSM<span>FIX</span></div>
+
+    <div class="menu-toggle" onclick="toggleMenu()">☰</div>
+
+    <div class="nav-links" id="navLinks">
+      <a href="#home">হোম</a>
+      <a href="#faq">FAQ</a>
+      <a href="#contact">যোগাযোগ</a>
+      <a href="#register" class="nav-btn">ভর্তি হন</a>
+    </div>
+
+  </div>
+</div>
+
+<!-- ================= FAQ SECTION ================= -->
+<section class="faq" id="faq">
+<div class="container">
+
+<h2 class="section-title">প্রশ্ন এবং উত্তর (FAQ)</h2>
+<p class="section-subtitle">ভর্তি হওয়ার আগে আপনার সব প্রশ্নের উত্তর</p>
+
+<!-- VIDEO -->
+<div class="video-box">
+  <iframe src="https://www.youtube.com/embed/d1ZPaclx1EQ" allowfullscreen></iframe>
+</div>
+
+<!-- TIMER -->
+<div class="offer-box">
+  <h3>🔥 অফার শেষ হতে বাকি</h3>
+  <div id="countdown">00:00:00</div>
+</div>
+
+<!-- ================= FAQ ITEMS (100% SAME - NO CHANGE) ================= -->
+
+<div class="faq-item">
+<button class="faq-question">কোর্স ফি কত? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ কোর্স ফি ২৫ হাজার টাকা</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">এক্সট্রা কোনো খরচ আছে? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ অন্যান্য প্রতিষ্ঠানেঃ প্র্যাকটিসের জন্য আলাদা খরচে ফোন কিনে প্র্যাকটিস করতে হয় তাছাড়া ব্যাগ , আইডি কার্ড , টিশার্ট , সার্টিফিকেট , নোট এর জন্য আলাদা খরচ ছাত্রদের বহন করতে হয়। কিন্ত Gsmfix Training Center এ যেহেতু ছাত্রদেরকে দিয়ে ফোন ঠিক করানো হয় তাই মোবাইল,ব্যাগ,আইডি কার্ড,টিশার্ট , সার্টিফিকেট , PDF সবকিছু ছাত্রদের বিনামুল্যে দেয়া হয় মানে আলাদা কোনো খরচ দিতে হয়না। শুধুমাত্র সিট বুকিং এর ১ হাজার টাকার বিনিময়ে ছাত্রদের ১৪ টি টুলস দেয়া হয় প্র্যাকটিসের জন্য যা কোর্স শেষে যার যার বাড়িতে নিয়ে যেতে পারবে ।</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">থাকা খাওয়ার ব্যবস্থা আছে? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ ৩ বেলা মানসম্মত খাবার ও আলাদা বেডিং এ থাকার খরচ ৬৫০০ টাকা</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">কত মাসের কোর্স ? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ ৩ মাসের কোর্স = প্রতিদিন ৪ ঘন্টা ক্লাস ( যারা কাজের পাশাপাশি শিখতে চাচ্ছেন তাদের জন্য ) ১ মাসের কোর্স = প্রতিদিন ১০ ঘন্টা ক্লাস একটা বিষয় নিয়ে সারাদিন রিসার্চ করলে খুব দ্রুত তা শেখা যায় (দুর্বল ছাত্রদের জন্য আরো এক্সট্রা ১/২ মাস সময় দেয়া হবে যতদিন না শিখবে ততদিন ক্লাসে থাকতে হবে সেক্ষেত্রে আলাদা কোনো খরচ নেই)</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">কোর্স শেষে দোকানে কাজ করার সুযোগ আছে? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ আমাদের ৬ টি এক্টিভ শপ রয়েছে যেখানে ছাত্ররা ইন্টার্নশিপের মাধ্যমে দোকান পরিচালনা ও কাস্টমার ডিলিং রিয়েল লাইফ এক্সপেরিয়েন্স নিতে পারে । ইন্টার্নশিপের জন্য আলাদা কোনো ফি নেই ।</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">কোর্স শেষে সরকারি সার্টিফিকেট দেয়া হয়? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ কোর্স শেষে NSDA Level 4 পর্যন্ত সার্টিফিকেট সরকারি পরিক্ষার মাধ্যমে নিতে পারবেন। এই সার্টিফিকেট দিয়ে NGO থেকে লোন , বিদেশে যাওয়ার ক্ষেত্রে ভিসার এবং ভাল কোম্পানিতে চাকরির জন্য গুরুত্বপূর্ণ ভুমিকা রাখে</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">Gsmfix থেকে যারা কাজ শিখেছে তারা কতটুকু সফল? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ আমাদের শত শত ছাত্ররা কাজ শিখে দেখে বিদেশে আইসি লেভেলের কাজ করছে ছাত্রদের রিভিউ দেখুনঃReview</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">প্র্যাকটিক্যাল ভাবে শেখানো হয়? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ ২০২০ সাল থেকে Youtube.com/gsmrahat চ্যানেলে আমাদের প্রতিনিয়ত প্র্যাকটিক্যাল ক্লাসের ভিডিও এবং ক্লাসের এক্টিভিটি শেয়ার করা হয় ,চাইলে ১/২ দিন আমাদের অফিস ভিজিট করে আমাদের ক্লাস গুলো দেখতে পারেন ।</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">লোকেশন কোথায়? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ ঢাকা , বসুন্ধরা শপিং কমপ্লেক্সের পাশে , কারওয়ান বাজার , ট্রপিক্যাল নুর টাওয়ার লেভেল-১০</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">কি কি সুবিধা আছে? <span>+</span></button>
+<div class="faq-answer"><p>১৫-২০ বছরের অভিজ্ঞ ট্রেইনার দ্বারা বাস্তবমুখী ক্লাস , ইন্টার্নশিপ , প্রিমিয়াম সাপোর্ট , সবার জন্য আলাদা দামী যন্ত্রপাতি , প্রিমিয়াম গিফট , সরকারি সার্টিফিকেট- বিস্তারিত জানতেঃ ক্লিক করুন</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">পড়ালেখা কতটুকু প্রয়োজন? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ মুটামুটি বাংলা ইংলিশ রিডিং পড়তে জানলেই হবে ।</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">কি কি কাজ শেখানো হবে? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ আইফোন এবং এন্ড্রয়েড এর Hardware & Software এর যাবতীয় কাজ শেখানো হবে ব্যাসিক থেকে এডভান্স পর্যন্ত বিস্তারিত জানতে ক্লিক করুন</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">ভর্তি হতে কি কি লাগবে? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ আগামী ২৫ এপ্রিল , ০১ মে ব্যাচ শুরু হবে । আগামী ব্যাচ এ জয়েন করতে চাইলে সিট বুকিং করতে হবে সিট বুকিং করার জন্য ১ হাজার টাকা পেমেন্ট এবং আইডি/জন্ম নিবন্ধন এর ছবি দিতে হবে ।</p></div>
+</div>
+
+<div class="faq-item">
+<button class="faq-question">ভর্তির টাকা কিভাবে জমা দিতে হয়? <span>+</span></button>
+<div class="faq-answer"><p>উত্তরঃ যেদিন ব্যাচ শুরু হবে সেদিন ভর্তি হওয়ার জন্য মিনিমাম ২০ হাজার টাকা পেমেন্ট করতে হবে অবশিস্ট বকেয়া ৭-১০ দিনের মধ্যে পরিশোধ করতে হবে</p></div>
+</div>
+
+<!-- CTA -->
+<div class="faq-cta">
+  <h3>🚀 এখনই ভর্তি হয়ে ক্যারিয়ার শুরু করুন</h3>
+  <a href="https://wa.me/8801986718011" class="btn">📲 WhatsApp করুন</a>
+</div>
+
+</div>
+</section>
+
+<a href="https://wa.me/8801986718011" class="sticky-btn">🚀 Enroll Now</a>
+<a href="https://wa.me/8801986718011" class="whatsapp-float">💬</a>
+
+<script>
+// FAQ Toggle
+document.querySelectorAll(".faq-question").forEach(btn=>{
+  btn.onclick=()=>{
+    let ans=btn.nextElementSibling;
+    ans.style.maxHeight=ans.style.maxHeight?null:ans.scrollHeight+"px";
+  }
+});
+
+// Menu toggle
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+// Timer
+let end=new Date().getTime()+86400000;
+setInterval(()=>{
+  let now=new Date().getTime();
+  let diff=end-now;
+  let h=Math.floor(diff/(1000*60*60));
+  let m=Math.floor((diff/(1000*60))%60);
+  let s=Math.floor((diff/1000)%60);
+  document.getElementById("countdown").innerHTML=h+":"+m+":"+s;
+},1000);
+</script>
+
+</body>
+</html>
