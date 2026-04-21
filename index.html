@@ -30,10 +30,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 body {
-  font-family: 'Inter', 'Hind Siliguri', sans-serif;
-  background: #121212;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  background: #0f0f10;
   color: #e5e5e5;
-  line-height: 1.6;
 }
 
 /* 🔹 Navbar */
@@ -147,8 +146,7 @@ section {
 
 h1 { margin-bottom: 1rem; color: #fff; }
 p { line-height: 1.6; color: #b5b5b5; }
-
-.whatsapp-float{
+    .whatsapp-float{
 position:fixed;
 width:60px;
 height:60px;
@@ -173,277 +171,172 @@ margin-top:14px;
 70%{box-shadow:0 0 0 15px rgba(37,211,102,0);}
 100%{box-shadow:0 0 0 0 rgba(37,211,102,0);}
 }
+    :root {
+      /* Orange & Black Theme */
+      --primary: #ff6b00;       /* Vibrant Orange */
+      --primary-hover: #e65100; /* Darker Orange */
+      --bg-dark: #121212;       /* Main Background */
+      --bg-card: #1e1e1e;       /* Card Background */
+      --text-main: #ffffff;     /* White Text */
+      --text-muted: #b0b0b0;    /* Gray Text */
+      --border: #333333;
+      --success: #00c853;
+    }
 
-:root {
-  --primary: #ff6b00;
-  --primary-hover: #e65100;
-  --bg-dark: #121212;
-  --bg-card: #1e1e1e;
-  --text-main: #ffffff;
-  --text-muted: #b0b0b0;
-  --border: #333333;
-  --success: #00c853;
-}
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body {
+      font-family: 'Inter', 'Hind Siliguri', sans-serif;
+      background-color: var(--bg-dark);
+      color: var(--text-main);
+      line-height: 1.6;
+    }
 
-a { text-decoration: none; color: inherit; transition: 0.3s; }
-ul { list-style: none; }
+    a { text-decoration: none; color: inherit; transition: 0.3s; }
+    ul { list-style: none; }
 
-/* Utilities */
-.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
-.text-orange { color: var(--primary); }
-.text-center { text-align: center; }
-.btn {
-  display: inline-block;
-  background: var(--primary);
-  color: white;
-  padding: 12px 30px;
-  border-radius: 5px;
-  font-weight: 600;
-  border: none;
-  cursor: pointer;
-  font-size: 1rem;
-}
-.btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
-.section-title {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  font-weight: 700;
-}
-.section-subtitle {
-  color: var(--text-muted);
-  margin-bottom: 40px;
-  font-size: 1.1rem;
-}
+    /* Utilities */
+    .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+    .text-orange { color: var(--primary); }
+    .text-center { text-align: center; }
+    .btn {
+      display: inline-block;
+      background: var(--primary);
+      color: white;
+      padding: 12px 30px;
+      border-radius: 5px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    .btn:hover { background: var(--primary-hover); transform: translateY(-2px); }
+    .section-title {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+    }
 
-/* Header */
-header {
-  background: rgba(18, 18, 18, 0.95);
-  padding: 15px 0;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  border-bottom: 1px solid var(--border);
-}
-.nav-flex { display: flex; justify-content: space-between; align-items: center; }
-.logo { font-size: 1.5rem; font-weight: 700; color: white; }
-.logo span { color: var(--primary); }
-.nav-links { display: flex; gap: 20px; }
-.nav-links a:hover { color: var(--primary); }
+    /* Header */
+    header {
+      background: rgba(18, 18, 18, 0.95);
+      padding: 15px 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-flex { display: flex; justify-content: space-between; align-items: center; }
+    .logo { font-size: 1.5rem; font-weight: 700; color: white; }
+    .logo span { color: var(--primary); }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a:hover { color: var(--primary); }
 
-/* Hero Section */
-.hero {
-  padding: 80px 0;
-  background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
-  background-size: cover;
-  background-position: center;
-  text-align: center;
-}
-.hero h1 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.3; }
-.hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
+    /* Hero Section */
+    .hero {
+      padding: 80px 0;
+      background: linear-gradient(rgba(0,0,0,0.8), rgba(0,0,0,0.8)), url('https://images.unsplash.com/photo-1591799264318-7e6ef8ddb7ea?ixlib=rb-1.2.1&auto=format&fit=crop&w=1920&q=80');
+      background-size: cover;
+      background-position: center;
+      text-align: center;
+    }
+    .hero h1 { font-size: 2.5rem; margin-bottom: 20px; line-height: 1.3; }
+    .hero p { font-size: 1.2rem; color: var(--text-muted); max-width: 700px; margin: 0 auto 30px; }
 
-/* Features Grid */
-.features { padding: 60px 0; }
-.grid-3 {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 25px;
-}
-.card {
-  background: var(--bg-card);
-  padding: 30px;
-  border-radius: 8px;
-  border: 1px solid var(--border);
-  transition: 0.3s;
-}
-.card:hover { border-color: var(--primary); transform: translateY(-5px); }
-.card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
-.card h3 { margin-bottom: 15px; font-size: 1.3rem; }
-.card p { color: var(--text-muted); font-size: 0.95rem; }
+    /* Features Grid */
+    .features { padding: 60px 0; }
+    .grid-3 {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+    }
+    .card {
+      background: var(--bg-card);
+      padding: 30px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      transition: 0.3s;
+    }
+    .card:hover { border-color: var(--primary); transform: translateY(-5px); }
+    .card i { font-size: 2.5rem; color: var(--primary); margin-bottom: 20px; }
+    .card h3 { margin-bottom: 15px; font-size: 1.3rem; }
+    .card p { color: var(--text-muted); font-size: 0.95rem; }
 
-/* Pricing */
-.pricing { padding: 60px 0; background: #0a0a0a; }
-.price-box {
-  background: var(--bg-card);
-  border: 2px solid var(--primary);
-  padding: 40px;
-  border-radius: 10px;
-  text-align: center;
-  max-width: 500px;
-  margin: 0 auto;
-}
-.old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; }
-.new-price { font-size: 3rem; font-weight: 700; color: var(--primary); margin: 10px 0; }
-.price-list { text-align: left; margin: 30px 0; }
-.price-list li { margin-bottom: 10px; color: var(--text-muted); }
-.price-list i { color: var(--success); margin-right: 10px; }
+    /* Pricing */
+    .pricing { padding: 60px 0; background: #0a0a0a; }
+    .price-box {
+      background: var(--bg-card);
+      border: 2px solid var(--primary);
+      padding: 40px;
+      border-radius: 10px;
+      text-align: center;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+    .old-price { text-decoration: line-through; color: #666; font-size: 1.2rem; }
+    .new-price { font-size: 3rem; font-weight: 700; color: var(--primary); margin: 10px 0; }
+    .price-list { text-align: left; margin: 30px 0; }
+    .price-list li { margin-bottom: 10px; color: var(--text-muted); }
+    .price-list i { color: var(--success); margin-right: 10px; }
 
-/* Curriculum */
-.curriculum { padding: 60px 0; }
-.curriculum-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 20px;
-}
-.topic-item {
-  background: var(--bg-card);
-  padding: 15px;
-  border-radius: 5px;
-  display: flex;
-  align-items: center;
-  border-left: 3px solid var(--primary);
-}
-.topic-item i { color: var(--primary); margin-right: 15px; }
+    /* Curriculum */
+    .curriculum { padding: 60px 0; }
+    .curriculum-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 20px;
+    }
+    .topic-item {
+      background: var(--bg-card);
+      padding: 15px;
+      border-radius: 5px;
+      display: flex;
+      align-items: center;
+      border-left: 3px solid var(--primary);
+    }
+    .topic-item i { color: var(--primary); margin-right: 15px; }
 
-/* Form Section */
-.registration { padding: 60px 0; background: #0a0a0a; }
-.form-container {
-  background: var(--bg-card);
-  padding: 40px;
-  border-radius: 10px;
-  max-width: 600px;
-  margin: 0 auto;
-}
-.form-group { margin-bottom: 20px; }
-.form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); }
-.form-control {
-  width: 100%;
-  padding: 12px;
-  background: #121212;
-  border: 1px solid var(--border);
-  color: white;
-  border-radius: 5px;
-  font-family: inherit;
-}
-.form-control:focus { outline: none; border-color: var(--primary); }
+    /* Form Section */
+    .registration { padding: 60px 0; background: #0a0a0a; }
+    .form-container {
+      background: var(--bg-card);
+      padding: 40px;
+      border-radius: 10px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; margin-bottom: 8px; color: var(--text-muted); }
+    .form-control {
+      width: 100%;
+      padding: 12px;
+      background: #121212;
+      border: 1px solid var(--border);
+      color: white;
+      border-radius: 5px;
+      font-family: inherit;
+    }
+    .form-control:focus { outline: none; border-color: var(--primary); }
+    
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
 
-/* Footer */
-footer {
-  padding: 40px 0;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.9rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-  .hero h1 { font-size: 1.8rem; }
-  .nav-links { display: none; }
-}
-
-/* 🔹 CUSTOM CURSOR CSS */
-.custom-dot-cursor {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 8px;
-  height: 8px;
-  background: #000;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  will-change: transform;
-  transition: width 0.25s ease, height 0.25s ease, background 0.25s ease;
-  mix-blend-mode: difference;
-}
-
-.custom-dot-cursor.hover {
-  width: 18px;
-  height: 18px;
-  background: #fff;
-}
-
-@media (pointer: fine) {
-  body, a, button, input, textarea, select, [data-cursor-hover] { cursor: none; }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .custom-dot-cursor { display: none; }
-}
-
-/* Contact & Social Styles */
-.contact-social-map {
-  width: 100%;
-  max-width: 900px;
-  margin: 30px auto 0;
-  padding: 0 15px 30px;
-}
-.social-buttons {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 12px;
-  margin-bottom: 20px;
-}
-.social-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  min-height: 56px;
-  padding: 14px 18px;
-  background: #f47a2a;
-  color: #fff;
-  text-decoration: none;
-  font-weight: 700;
-  font-size: 16px;
-  border-radius: 12px;
-  border: 1px solid #f47a2a;
-  transition: all 0.3s ease;
-  box-shadow: 0 6px 18px rgba(244, 122, 42, 0.18);
-}
-.social-btn:hover {
-  background: transparent;
-  color: #f47a2a;
-  transform: translateY(-2px);
-}
-.social-icon {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 28px;
-  height: 28px;
-  line-height: 1;
-  flex-shrink: 0;
-}
-.social-icon svg {
-  width: 22px;
-  height: 22px;
-  display: block;
-}
-.address-box,
-.map-box {
-  background: #161616;
-  border: 1px solid #2c2c2c;
-  border-radius: 14px;
-  padding: 18px;
-  margin-bottom: 18px;
-}
-.address-box h3 {
-  color: #f47a2a;
-  margin: 0 0 10px;
-  font-size: 22px;
-}
-.address-box p {
-  margin: 0;
-  color: #d7d7d7;
-  font-size: 16px;
-  line-height: 1.9;
-}
-.map-box iframe {
-  display: block;
-  border-radius: 10px;
-}
-@media (max-width: 768px) {
-  .social-buttons { grid-template-columns: 1fr; }
-  .social-btn {
-    min-height: 52px;
-    font-size: 15px;
-    justify-content: flex-start;
-  }
-  .address-box h3 { font-size: 20px; }
-  .address-box p { font-size: 15px; line-height: 1.8; }
-  .map-box iframe { height: 240px; }
-}
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 1.8rem; }
+      .nav-links { display: none; } /* Simplified for mobile example */
+    }
   </style>
   <!-- Meta Pixel Code -->
 <script>
@@ -460,10 +353,6 @@ fbq('track', 'PageView');
 <!-- End Meta Pixel Code -->
 </head>
 <body>
-
-<!-- 🔹 CUSTOM CURSOR DOT (REQUIRED ELEMENT) -->
-<div class="custom-dot-cursor"></div>
-
 <!-- Google Tag Manager (noscript) -->
 <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W76X2TLF"
 height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -476,7 +365,7 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
 
 <!-- 🔹 Navigation -->
   <div class="container nav-flex">
-    <div class="logo"><img src="logo.png" alt="GSMFIX Logo" style="height:40px;"></div>
+    <div class="logo"><img src="logo.png"></div>
 
     <button class="hamburger" onclick="toggleMenu()" aria-label="Toggle navigation">☰</button>
 
@@ -490,12 +379,42 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
 
     <a href="#register" class="btn">জয়েন করুন</a>
   </div>
+ <!-- 🔹 JavaScript -->
+  <script>
+    function toggleMenu() {
+      const nav = document.getElementById('navLinks');
+      nav.classList.toggle('active');
+    }
 
-  <header>
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      const nav = document.getElementById('navLinks');
+      const hamburger = document.querySelector('.hamburger');
+      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
+        nav.classList.remove('active');
+      }
+    });
+
+    // Optional: Smooth scroll for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
+          // Close mobile menu after clicking
+          document.getElementById('navLinks').classList.remove('active');
+        }
+      });
+    });
+  </script>
+
+  </header>
+
   <!-- Hero Section -->
   <section class="hero" id="home">
     <div class="container">
-      <h1>শিখুন মোবাইল সার্ভিসিং <span class="text-orange">GSMFIX</span> এর সাথে<br>ক্যারিয়ার গড়ুন দেশ ও বিদেশে ব্যবসা বা চাকরির মাধ্যমে!</h1>
+      <h1>শিখুন মোবাইল সার্ভিসিং <span class="text-orange">GSMFIX</span> এর সাথে<br>ক্যারিয়ার গড়ুন দেশ ও বিদেশে ব্যবসা বা চাকরির মাধ্যমে!</h1>
     <p>
 শিখুন মোবাইল সার্ভিসিং ব্যাসিক টু এডভান্স । দেশের বৃহত্তম 
 <strong>
@@ -516,48 +435,52 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
       allowfullscreen>
     </iframe>
   </div>
-</div>
-</header>
-
+</section>
   <!-- Why Choose Us -->
   <section class="features">
     <div class="container">
       <div class="text-center">
         <h2> কেন <span style="color:orange; font-weight:bold;">GSMFIX</span> থেকে শিখবেন?</h2>
-        <p class="section-subtitle">লেখালেখি নয় আমরা বাস্তবমুখী কাজ শেখাই হাতে ধরিয়ে</p>
+        <p class="section-subtitle">লেখালেখি নয় আমরা বাস্তবমুখী কাজ শেখাই হাতে ধরিয়ে</p>
       </div>
       <div class="grid-3">
         <div class="card">
           <i class="fas fa-video"></i>
           <h3>বাস্তবমুখী ক্লাস</h3>
-          <p>"১৫–২০ বছরের অভিজ্ঞ ট্রেইনার দ্বারা বাস্তবমুখী প্র্যাকটিক্যাল ট্রেনিং পাশাপাশি হাতে ধরিয়ে প্র্যাকটিস । আমাদের ক্লাস দেখতে ভিজিট করুন:<a href="https://YouTube.com/Gsmrahat" target="_blank">YouTube.com/Gsmrahat</a>— আমরা কথায় নয়, কাজে বিশ্বাসী।"</p>
+          <p>“১৫–২০ বছরের অভিজ্ঞ ট্রেইনার দ্বারা বাস্তবমুখী প্র্যাকটিক্যাল ট্রেনিং পাশাপাশি হাতে ধরিয়ে প্র্যাকটিস । আমাদের ক্লাস দেখতে ভিজিট করুন:<a href=YouTube.com/Gsmrahat>YouTube.com/Gsmrahat</a>— আমরা কথায় নয়, কাজে বিশ্বাসী।”</p>
         </div>
         <div class="card">
           <i class="fas fa-store"></i>
           <h3>ইন্টার্নশিপ  </h3>
-          <p>"আমাদের ৬টি এক্টিভ শপে বিনামুল্যে ইন্টার্নশিপের সুযোগ – যার মাধ্যমে দোকান পরিচালনা ও আরো বাস্তব অভিজ্ঞতা অর্জন হয়"</p>
+          <p>“আমাদের ৬টি এক্টিভ শপে বিনামুল্যে ইন্টার্নশিপের সুযোগ – যার মাধ্যমে দোকান পরিচালনা ও আরো বাস্তব অভিজ্ঞতা অর্জন হয়“</p>
         </div>
         <div class="card">
           <i class="fas fa-headset"></i>
-          <h3>প্রিমিয়াম সাপোর্ট</h3>
-          <p>"রিপেয়ার কাজে যেকোন সমস্যায় ২৪/৭ ট্রেইনার সাপোর্ট পাবেন , পাশাপাশি রয়েছে Support Group,Support Forum যা বাংলাদেশে এই প্রথম"</p>
+          <h3>প্রিমিয়াম সাপোর্ট</h3>
+          <p>“রিপেয়ার কাজে যেকোন সমস্যায় ২৪/৭ ট্রেইনার সাপোর্ট পাবেন , পাশাপাশি রয়েছে Support Group,Support Forum যা বাংলাদেশে এই প্রথম”</p>
         </div>
         <div class="card">
           <i class="fas fa-screwdriver-wrench"></i>
           <h3>Master Level Equipment</h3>
-          <p>"অত্যাধুনিক Forward Brand এর প্রিমিয়াম টুলস রয়েছে । যার মাধ্যমে Advance Level এর যেকোন কাজ Comfortable ভাবে ছাত্ররা বেশি বেশি প্র্যাকটিস করতে পারে।"</p>
+          <p>“অত্যাধুনিক Forward Brand এর প্রিমিয়াম টুলস রয়েছে । যার মাধ্যমে Advance Level এর যেকোন কাজ Comfortable ভাবে ছাত্ররা বেশি বেশি প্র্যাকটিস করতে পারে।”</p>
         </div>
         <div class="card">
           <i class="fas fa-gift"></i>
-          <h3>প্রিমিয়াম গিফট</h3>
-          <p>"Borneo Diagram, Tshirt, ID Card, Bag, Keyring, Unlock Server Membership, Software Solution Video, GsmPack Windows 2026, Special PDF, এইসব জিনিসের ভেল্যু প্রায় (৫০,০০০৳)"</p>
+          <h3>প্রিমিয়াম গিফট</h3>
+          <p>”Borneo Diagram,
+Tshirt, ID Card, Bag, Keyring,
+Unlock Server Membership,
+Software Solution Video,
+GsmPack Windows 2026,
+Special PDF, 
+এইসব জিনিসের ভেল্যু প্রায় (৫০,০০০৳)”</p>
         </div>
         <div class="card">
           <i class="fas fa-certificate"></i>
           <h3>সার্টিফিকেট</h3>
-          <p>"NSDA (National Skills Development Authority) ও TICTB অনুমোদিত ট্রেনিং সেন্টার। কোর্স শেষে ২টি সরকারি ও ১টি প্রাতিষ্ঠানিক সার্টিফিকেট প্রদান করা হয়।"</p>
-        </div>
-      </div>
+          <p>“NSDA (National Skills Development Authority) ও TICTB অনুমোদিত ট্রেনিং সেন্টার। কোর্স শেষে ২টি সরকারি ও ১টি প্রাতিষ্ঠানিক সার্টিফিকেট প্রদান করা হয়।</p>
+      
+     </div>
     </div>
   </section>
 
@@ -652,6 +575,7 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
       <p class="section-subtitle">ভর্তি হতে চাইলে ফরম পুরন করুণ</p>
     </div>
     <div class="form-container">
+      <!-- Google Form action এবং field names যুক্ত করা হলো -->
       <form action="https://docs.google.com/forms/d/e/1FAIpQLSfc3jDBW_lFI4nFYrvdVwHGj8OPJu2qOPXJSpIXSwYvWw0XkA/formResponse" method="POST" target="_blank">
         
         <div class="form-group">
@@ -671,21 +595,23 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
         
         <div style="background: #121212; padding: 15px; border-radius: 5px; margin-bottom: 20px; border: 1px solid var(--border);">
           <div style="display: flex; justify-content: space-between; margin-bottom: 10px;">
-            <span>প্রয়োজনে কল করুণ   (tap to call) </span>
+            <span>প্রয়োজনে কল করুণ   (tap to call) </a></span>
             <span class="text-white"><a href="tel:+8801986718011">+8801986718011</a></span>
+          </div>
+          <div style="display: flex; justify-content: space-between; font-weight: bold; border-top: 1px solid #333; padding-top: 10px;">
+           
           </div>
         </div>
 
         <button type="submit" class="btn" style="width: 100%;">সাবমিট করুন</button>
         <p style="margin-top: 15px; font-size: 0.9rem; color: #888; text-align: center;">
-          বসুন্ধরা শপিং কমপ্লেক্সের পাশে-কারওয়ান বাজার,ট্রপিক্যাল নুর টাওয়ার-লেভেল-১০ 
+          বসুন্ধরা শপিং কমপ্লেক্সের পাশে-কারওয়ান বাজার,ট্রপিক্যাল নুর টাওয়ার-লেভেল-১০ 
         </p>
         
       </form>
     </div>
   </div>
-  
-  <section class="contact-social-map">
+    <section class="contact-social-map">
   <div class="social-buttons">
     <a href="https://wa.me/8801986718011" class="social-btn whatsapp" target="_blank" rel="noopener">
       <span class="social-icon" aria-hidden="true">
@@ -720,8 +646,9 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
     <h2>ঠিকানা</h2>
     <p>
       GSMFIX Training Center<br>
-      বসুন্ধরা শপিং কমপ্লেক্সের পাশে - কারওয়ান বাজার, ট্রপিক্যাল নুর টাওয়ার - লেভেল ১০<br>
-      বাংলাদেশ,মোবাইলঃ <a href="https://wa.me/8801986718011">01986718011</a>
+      বসুন্ধরা শপিং কমপ্লেক্সের পাশে - কারওয়ান বাজার, ট্রপিক্যাল নুর টাওয়ার - লেভেল ১০<br>
+      বাংলাদেশ,মোবাইলঃ <a href="https://wa.me/01986718011">01986718011</a>
+   
     </p>
   </div>
 
@@ -737,6 +664,114 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
     </iframe>
   </div>
 </section>
+
+<style>
+  .contact-social-map {
+    width: 100%;
+    max-width: 900px;
+    margin: 30px auto 0;
+    padding: 0 15px 30px;
+  }
+
+  .social-buttons {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 20px;
+  }
+
+  .social-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 56px;
+    padding: 14px 18px;
+    background: #f47a2a;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 16px;
+    border-radius: 12px;
+    border: 1px solid #f47a2a;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 18px rgba(244, 122, 42, 0.18);
+  }
+
+  .social-btn:hover {
+    background: transparent;
+    color: #f47a2a;
+    transform: translateY(-2px);
+  }
+
+  .social-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+
+  .social-icon svg {
+    width: 22px;
+    height: 22px;
+    display: block;
+  }
+
+  .address-box,
+  .map-box {
+    background: #161616;
+    border: 1px solid #2c2c2c;
+    border-radius: 14px;
+    padding: 18px;
+    margin-bottom: 18px;
+  }
+
+  .address-box h3 {
+    color: #f47a2a;
+    margin: 0 0 10px;
+    font-size: 22px;
+  }
+
+  .address-box p {
+    margin: 0;
+    color: #d7d7d7;
+    font-size: 16px;
+    line-height: 1.9;
+  }
+
+  .map-box iframe {
+    display: block;
+    border-radius: 10px;
+  }
+
+  @media (max-width: 768px) {
+    .social-buttons {
+      grid-template-columns: 1fr;
+    }
+
+    .social-btn {
+      min-height: 52px;
+      font-size: 15px;
+      justify-content: flex-start;
+    }
+
+    .address-box h3 {
+      font-size: 20px;
+    }
+
+    .address-box p {
+      font-size: 15px;
+      line-height: 1.8;
+    }
+
+    .map-box iframe {
+      height: 240px;
+    }
+  }
+</style>
 </section>
 
   <!-- Footer -->
@@ -751,72 +786,5 @@ class="whatsapp-float" target="_blank">
     </div>
   </footer>
 
-  <!-- 🔹 CUSTOM CURSOR JAVASCRIPT (MOVED TO BOTTOM) -->
-  <script>
-  (function() {
-    const cursor = document.querySelector('.custom-dot-cursor');
-    // Only run on desktop/mouse devices
-    if (!cursor || !window.matchMedia('(pointer: fine)').matches) return;
-
-    let mouseX = 0, mouseY = 0;
-    let cursorX = 0, cursorY = 0;
-
-    // Track mouse position
-    document.addEventListener('mousemove', (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
-
-    // Smooth animation loop
-    function animate() {
-      const speed = 0.15; // Adjust for smoother/snappier follow
-      cursorX += (mouseX - cursorX) * speed;
-      cursorY += (mouseY - cursorY) * speed;
-      
-      cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0) translate(-50%, -50%)`;
-      requestAnimationFrame(animate);
-    }
-    requestAnimationFrame(animate);
-
-    // Hover effect on interactive elements
-    document.addEventListener('pointerover', (e) => {
-      if (e.target.closest('a, button, input, textarea, select, [data-cursor-hover]')) {
-        cursor.classList.add('hover');
-      }
-    });
-    document.addEventListener('pointerout', (e) => {
-      if (e.target.closest('a, button, input, textarea, select, [data-cursor-hover]')) {
-        cursor.classList.remove('hover');
-      }
-    });
-
-    // Mobile menu toggle
-    window.toggleMenu = function() {
-      const nav = document.getElementById('navLinks');
-      nav.classList.toggle('active');
-    };
-
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      const nav = document.getElementById('navLinks');
-      const hamburger = document.querySelector('.hamburger');
-      if (!nav.contains(e.target) && !hamburger.contains(e.target)) {
-        nav.classList.remove('active');
-      }
-    });
-
-    // Smooth scroll for anchor links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          window.scrollTo({ top: target.offsetTop - 70, behavior: 'smooth' });
-          document.getElementById('navLinks').classList.remove('active');
-        }
-      });
-    });
-  })();
-  </script>
 </body>
 </html>
