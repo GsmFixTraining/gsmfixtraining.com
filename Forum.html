@@ -3,508 +3,262 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>GSMFIX Forum - মোবাইল সার্ভিসিং কমিউনিটি</title>
+  <title>GSMFIX Forum - Login & Forgot Password</title>
   <style>
-    /* 🔹 GSMFIX BLACK & ORANGE THEME */
+    /* পূর্বের CSS এখানে বিদ্যমান */
     :root {
-      --orange: #ff6a00;
-      --orange-dark: #e55d00;
-      --orange-light: #ff8533;
-      --black: #080808;
-      --dark-bg: #111111;
-      --card-bg: #181818;
-      --card-hover: #222222;
-      --text-main: #f2f2f2;
-      --text-muted: #9ca3af;
-      --border: #2a2a2a;
-      --border-light: #333333;
+      --orange: #ff6a00; --black: #080808; --card-bg: #181818;
+      --text-main: #f2f2f2; --text-muted: #9ca3af; --border: #2a2a2a;
       --success: #22c55e;
-      --warning: #eab308;
     }
-
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: 'Segoe UI', 'Noto Sans Bengali', Tahoma, sans-serif;
-      background: var(--black);
-      color: var(--text-main);
-      line-height: 1.6;
-    }
+    body { font-family: 'Segoe UI', sans-serif; background: var(--black); color: var(--text-main); margin: 0; }
+    .hidden { display: none !important; }
+    .navbar { position: fixed; top: 0; width: 100%; background: #111; border-bottom: 3px solid var(--orange); z-index: 1000; padding: 1rem; }
+    .container { max-width: 1200px; margin: 0 auto; padding-top: 100px; }
     
-    a { text-decoration: none; color: inherit; }
+    .auth-card { max-width: 400px; margin: 50px auto; background: var(--card-bg); padding: 2rem; border-radius: 1rem; border: 1px solid var(--border); text-align: center; }
+    .form-group { text-align: left; margin-bottom: 1rem; position: relative; }
+    .form-group label { display: block; font-size: 0.85rem; margin-bottom: 0.4rem; color: var(--text-muted); }
+    .form-group input { width: 100%; padding: 0.75rem; border-radius: 0.5rem; border: 1px solid var(--border); background: #222; color: white; box-sizing: border-box; }
     
-    /* 🔸 Navbar */
-    .navbar {
-      position: fixed; top: 0; width: 100%;
-      background: var(--dark-bg);
-      border-bottom: 3px solid var(--orange);
-      box-shadow: 0 4px 20px rgba(255,106,0,0.15);
-      z-index: 1000; padding: 0 1rem;
+    /* Forgot Password Style */
+    .forgot-link {
+      display: block; text-align: right; font-size: 0.8rem; color: var(--orange); 
+      margin-top: 0.5rem; cursor: pointer; text-decoration: none;
     }
-    .nav-container {
-      max-width: 1200px; margin: 0 auto;
-      display: flex; align-items: center; justify-content: space-between; height: 64px;
-    }
-    .logo { display: flex; align-items: center; gap: 0.5rem; }
-    .logo-badge {
-      background: var(--orange); color: var(--black);
-      padding: 0.45rem 1rem; border-radius: 0.5rem;      font-weight: 800; font-size: 1.2rem; letter-spacing: 0.5px;
-    }
-    .logo-text { font-weight: 600; color: var(--text-main); display: none; }
-    @media(min-width: 768px) { .logo-text { display: inline; } }
+    .forgot-link:hover { text-decoration: underline; }
 
-    .nav-links { display: none; align-items: center; gap: 1.5rem; }
-    @media(min-width: 768px) { .nav-links { display: flex; } }
-    .nav-links a { font-weight: 500; transition: color 0.2s; }
-    .nav-links a:hover { color: var(--orange); }
-
-    .auth-buttons { display: flex; gap: 0.75rem; }
-    .btn {
-      padding: 0.5rem 1.25rem; border-radius: 0.5rem;
-      font-weight: 600; cursor: pointer; border: 2px solid transparent;
-      transition: all 0.2s; font-size: 0.9rem;
-    }
-    .btn-outline { border-color: var(--orange); color: var(--orange); background: transparent; }
-    .btn-outline:hover { background: var(--orange); color: var(--black); }
-    .btn-primary { background: var(--orange); color: var(--black); box-shadow: 0 2px 8px rgba(255,106,0,0.4); }
-    .btn-primary:hover { background: var(--orange-dark); transform: translateY(-1px); }
-
-    .mobile-toggle {
-      display: block; background: none; border: none;
-      font-size: 1.5rem; color: var(--text-main); cursor: pointer;
-    }
-    @media(min-width: 768px) { .mobile-toggle { display: none; } }
-    .mobile-menu { display: none; padding: 1rem; background: var(--dark-bg); border-top: 1px solid var(--border); }
-    .mobile-menu.active { display: block; }
-    .mobile-menu a { display: block; padding: 0.75rem 0; border-bottom: 1px solid var(--border); }
-
-    /* 🔸 Main Container */
-    .container { max-width: 1200px; margin: 0 auto; padding: 1rem; padding-top: 84px; }
-
-    /* 🔸 Hero Section */
-    .hero {
-      background: linear-gradient(135deg, var(--black), #1a0d00);
-      border: 1px solid var(--border-light);
-      border-left: 4px solid var(--orange);
-      border-radius: 1rem; padding: 2rem; margin-bottom: 2rem;
-      box-shadow: 0 8px 24px rgba(0,0,0,0.5);
-    }
-    .hero h1 { font-size: 1.75rem; margin-bottom: 0.5rem; color: var(--text-main); }
-    .hero p { opacity: 0.85; margin-bottom: 1rem; color: var(--text-muted); }
-    .hero-stats { display: flex; gap: 0.75rem; flex-wrap: wrap; }
-    .hero-stats span {
-      background: rgba(255,106,0,0.15); color: var(--orange);
-      padding: 0.4rem 1rem; border-radius: 2rem; font-size: 0.85rem;
-      border: 1px solid rgba(255,106,0,0.3);
-    }
-    /* 🔸 Grid Layout */
-    .forum-grid { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-    @media(min-width: 1024px) { .forum-grid { grid-template-columns: 2fr 1fr; } }
-
-    .section-title {
-      font-size: 1.5rem; font-weight: 700; color: var(--text-main);
-      margin-bottom: 1rem; display: flex; align-items: center; gap: 0.5rem;
-    }
-    .section-title::before {
-      content: ""; width: 4px; height: 2rem;
-      background: var(--orange); border-radius: 2px;
-    }
-
-    /* 🔸 Category Cards */
-    .categories-grid { display: grid; grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2rem; }
-    @media(min-width: 640px) { .categories-grid { grid-template-columns: repeat(2, 1fr); } }
+    .btn { padding: 0.75rem 1.5rem; border-radius: 0.5rem; font-weight: 600; cursor: pointer; border: none; width: 100%; transition: 0.3s; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .btn-primary { background: var(--orange); color: var(--black); margin-top: 1.5rem; }
     
-    .category-card {
-      background: var(--card-bg); border-radius: 0.75rem; padding: 1.25rem;
-      border: 1px solid var(--border); display: flex; gap: 1rem;
-      transition: all 0.25s; position: relative; overflow: hidden;
-    }
-    .category-card:hover {
-      transform: translateY(-3px); border-color: var(--orange);
-      box-shadow: 0 6px 18px rgba(255,106,0,0.15);
-    }
-    .category-icon {
-      width: 3rem; height: 3rem; border-radius: 0.5rem;
-      background: #222; color: var(--orange);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 1.5rem; flex-shrink: 0; border: 1px solid var(--border);
-    }
-    .category-info h3 { font-weight: 600; font-size: 1.1rem; margin-bottom: 0.25rem; }
-    .category-info p { font-size: 0.9rem; color: var(--text-muted); margin-bottom: 0.5rem; }
-    .category-meta { display: flex; gap: 1rem; font-size: 0.85rem; color: var(--text-muted); }
+    .btn-google { background: white; color: #444; margin-top: 1rem; border: 1px solid #ddd; }
+    .divider { margin: 1.5rem 0; display: flex; align-items: center; color: var(--text-muted); font-size: 0.8rem; }
+    .divider::before, .divider::after { content: ""; flex: 1; height: 1px; background: var(--border); margin: 0 10px; }
 
-    /* 🔸 Thread List */
-    .thread-list { background: var(--card-bg); border-radius: 0.75rem; border: 1px solid var(--border); overflow: hidden; }
-    .thread-item {
-      padding: 1rem; border-bottom: 1px solid var(--border);
-      display: grid; grid-template-columns: auto 1fr auto; gap: 1rem; align-items: start;
-    }
-    .thread-item:last-child { border-bottom: none; }
-    .thread-item:hover { background: var(--card-hover); }
+    .error-msg { font-size: 0.85rem; margin-top: 1rem; min-height: 20px; }
+    .status-red { color: #ff4444; }
+    .status-green { color: var(--success); }
 
-    .thread-avatar {
-      width: 2.5rem; height: 2.5rem; border-radius: 50%;
-      background: linear-gradient(135deg, #333, #555); color: var(--orange);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 0.9rem; border: 2px solid var(--border);    }
-
-    .thread-content h4 { font-weight: 600; margin-bottom: 0.25rem; }
-    .thread-content h4 a:hover { color: var(--orange); }
-    .thread-meta { display: flex; align-items: center; gap: 0.75rem; font-size: 0.8rem; color: var(--text-muted); flex-wrap: wrap; }
-    .thread-tag { background: #2a2a2a; padding: 0.2rem 0.5rem; border-radius: 0.25rem; font-size: 0.75rem; color: var(--text-muted); }
-    .thread-tag.pinned { background: #2a1f00; color: var(--orange); border: 1px solid rgba(255,106,0,0.4); }
-    .thread-tag.solved { background: #0a2000; color: var(--success); border: 1px solid rgba(34,197,94,0.4); }
-
-    .thread-stats { text-align: right; font-size: 0.85rem; color: var(--text-muted); min-width: 80px; }
-    .thread-stats strong { display: block; color: var(--text-main); font-size: 1.1rem; }
-
-    /* 🔸 Sidebar */
-    .sidebar { display: flex; flex-direction: column; gap: 1.5rem; }
-    .sidebar-card { background: var(--card-bg); border-radius: 0.75rem; padding: 1.25rem; border: 1px solid var(--border); }
-    .sidebar-card h3 { font-weight: 600; margin-bottom: 1rem; color: var(--text-main); font-size: 1.1rem; }
-
-    .stat-row { display: flex; justify-content: space-between; padding: 0.5rem 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
-    .stat-row:last-child { border-bottom: none; }
-    .stat-row span:last-child { font-weight: 600; color: var(--orange); }
-
-    .contributor-item { display: flex; align-items: center; gap: 0.75rem; padding: 0.5rem; border-radius: 0.5rem; transition: background 0.2s; }
-    .contributor-item:hover { background: var(--card-hover); }
-    .contributor-avatar {
-      width: 2rem; height: 2rem; border-radius: 50%;
-      background: #333; color: var(--orange); display: flex; align-items: center; justify-content: center;
-      font-weight: 700; font-size: 0.8rem; border: 1px solid var(--border);
-    }
-    .contributor-name { font-weight: 500; font-size: 0.9rem; }
-    .contributor-points { font-size: 0.8rem; color: var(--text-muted); }
-
-    .quick-links a { display: block; padding: 0.4rem 0; color: var(--text-muted); transition: all 0.2s; }
-    .quick-links a:hover { color: var(--orange); padding-left: 0.25rem; }
-
-    /* 🔸 Footer */
-    footer { background: var(--black); color: var(--text-muted); text-align: center; padding: 2rem 1rem; margin-top: 3rem; border-top: 3px solid var(--orange); }
-    footer .brand { color: var(--orange); font-weight: 800; font-size: 1.2rem; margin-bottom: 0.5rem; letter-spacing: 1px; }
-    footer p { margin: 0.25rem 0; }
-
-    /* 🔸 Utility & Badges */
-    .badge { display: inline-block; padding: 0.15rem 0.5rem; border-radius: 1rem; font-size: 0.75rem; font-weight: 600; }
-    .badge-newbie { background: #222; color: #999; }
-    .badge-apprentice { background: #222; color: var(--orange-light); border: 1px solid rgba(255,133,51,0.3); }
-    .badge-technician { background: #1a1a1a; color: #4ade80; border: 1px solid rgba(74,222,128,0.3); }
-    .badge-expert { background: #2a2200; color: #facc15; border: 1px solid rgba(250,204,21,0.3); }
-    .badge-master { background: var(--orange); color: var(--black); }
-
-    /* Scrollbar */
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: var(--black); }    ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
-    ::-webkit-scrollbar-thumb:hover { background: var(--orange); }
+    .toggle-auth { margin-top: 1.5rem; font-size: 0.9rem; color: var(--text-muted); cursor: pointer; }
+    .toggle-auth span { color: var(--orange); font-weight: bold; }
   </style>
 </head>
 <body>
 
-  <!-- Navbar -->
   <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="logo">
-        <span class="logo-badge">GSMFIX</span>
-        <span class="logo-text">Forum</span>
-      </a>
-
-      <div class="nav-links">
-        <a href="#">📱 ফোরাম</a>
-        <a href="#">📂 ক্যাটেগরি</a>
-        <a href="#">👥 সদস্য</a>
-        <a href="#">🏆 লিডারবোর্ড</a>
-        
-        <div class="auth-buttons">
-          <a href="#" class="btn btn-outline">লগইন</a>
-          <a href="#" class="btn btn-primary">রেজিস্ট্রেশন</a>
-        </div>
-      </div>
-
-      <button class="mobile-toggle" onclick="toggleMenu()">☰</button>
-    </div>
-    
-    <div class="mobile-menu" id="mobileMenu">
-      <a href="#">📱 ফোরাম</a>
-      <a href="#">📂 ক্যাটেগরি</a>
-      <a href="#">👥 সদস্য</a>
-      <a href="#">🏆 লিডারবোর্ড</a>
-      <a href="#" style="color:var(--orange);font-weight:600">লগইন</a>
-      <a href="#" style="background:var(--orange);color:var(--black);text-align:center;border-radius:0.5rem;margin-top:0.5rem">রেজিস্ট্রেশন</a>
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 0 1rem;">
+      <span style="background:var(--orange); color:black; padding: 0.45rem 1rem; border-radius: 8px; font-weight:800;">GSMFIX</span>
+      <button id="logoutBtn" class="btn hidden" style="width:auto; background:transparent; color:var(--orange); border: 1px solid var(--orange); padding: 0.4rem 1rem;">লগআউট</button>
     </div>
   </nav>
 
-  <!-- Main Content -->
   <div class="container">
     
-    <!-- Hero Section -->
-    <section class="hero">
-      <h1>🛠️ GSMFIX কমিউনিটি ফোরাম</h1>
-      <p>মোবাইল সার্ভিসিং নিয়ে আলোচনা, প্রশ্নোত্তর এবং প্রফেশনাল সমাধান</p>
-      <div class="hero-stats">
-        <span>📊 ৮+ ক্যাটেগরি</span>
-        <span>💬 ৫০০+ সক্রিয় থ্রেড</span>
-        <span>👨‍🔧 ১,২০০+ সদস্য</span>      </div>
-    </section>
-
-    <div class="forum-grid">
-      
-      <!-- Left Column: Categories + Threads -->
-      <div>
+    <!-- Auth Page -->
+    <div id="authPage">
+      <div class="auth-card">
+        <h2 id="authTitle" style="color:var(--orange); margin-bottom: 1.5rem;">লগইন করুন</h2>
         
-        <!-- Categories -->
-        <h2 class="section-title">ক্যাটেগরি সমূহ</h2>
-        <div class="categories-grid">
-          
-          <a href="#" class="category-card">
-            <div class="category-icon">🔋</div>
-            <div class="category-info">
-              <h3>পাওয়ার ও চার্জিং</h3>
-              <p>ব্যাটারি, চার্জিং আইসি, পাওয়ার ম্যানেজমেন্ট সমস্যা</p>
-              <div class="category-meta">
-                <span>১২৪ থ্রেড</span>
-                <span>🔥 সক্রিয়</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="category-card">
-            <div class="category-icon">📶</div>
-            <div class="category-info">
-              <h3>নেটওয়ার্ক ফিক্স</h3>
-              <p>সিম ডিটেকশন, সিগন্যাল, আইএমইআই, বেসব্যান্ড</p>
-              <div class="category-meta">
-                <span>৯৮ থ্রেড</span>
-                <span>🔥 সক্রিয়</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="category-card">
-            <div class="category-icon">🤖</div>
-            <div class="category-info">
-              <h3>অ্যান্ড্রয়েড সফটওয়্যার</h3>
-              <p>ফ্ল্যাশ, রুট, ফ্যাক্টরি রিসেট, ফার্মওয়্যার</p>
-              <div class="category-meta">
-                <span>২১৫ থ্রেড</span>
-                <span>✅ ভেরিফাইড</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="category-card">
-            <div class="category-icon">🍎</div>            <div class="category-info">
-              <h3>আইফোন রিপেয়ার</h3>
-              <p>আইওএস রেস্টোর, এক্টিভেশন লক, হার্ডওয়্যার ফিক্স</p>
-              <div class="category-meta">
-                <span>৮৭ থ্রেড</span>
-                <span>🔧 এক্সপার্ট</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="category-card">
-            <div class="category-icon">🧰</div>
-            <div class="category-info">
-              <h3>টুলস ও বক্স</h3>
-              <p>UFI, Medusa, Octopus, Chimera টুলস সাপোর্ট</p>
-              <div class="category-meta">
-                <span>১৫৬ থ্রেড</span>
-                <span>📥 ডাউনলোড</span>
-              </div>
-            </div>
-          </a>
-
-          <a href="#" class="category-card">
-            <div class="category-icon">📐</div>
-            <div class="category-info">
-              <h3>ডায়াগ্রাম লাইব্রেরি</h3>
-              <p>স্কিমেটিক, পয়েন্ট টু পয়েন্ট, ভোল্টেজ চার্ট</p>
-              <div class="category-meta">
-                <span>৬৩ থ্রেড</span>
-                <span>🔒 প্রিমিয়াম</span>
-              </div>
-            </div>
-          </a>
-
+        <div class="form-group">
+          <label>ইমেইল</label>
+          <input type="email" id="email" placeholder="example@mail.com">
         </div>
-
-        <!-- Recent Threads -->
-        <h2 class="section-title">সর্বশেষ আলোচনা</h2>
-        <div class="thread-list">
-          
-          <div class="thread-item">
-            <div class="thread-avatar">R</div>
-            <div class="thread-content">
-              <h4><a href="#">Samsung A12 চার্জিং সমস্যা - IC পরিবর্তনের পরেও সমাধান হচ্ছে না</a></h4>
-              <div class="thread-meta">
-                <span class="thread-tag pinned">📌 পিনড</span>
-                <span>👤 রহিম টেক</span>
-                <span>⏰ ২ ঘণ্টা আগে</span>
-                <span>📂 পাওয়ার ও চার্জিং</span>
-              </div>            </div>
-            <div class="thread-stats">
-              <strong>২৪</strong>
-              <span>রিপ্লাই</span>
-            </div>
-          </div>
-
-          <div class="thread-item">
-            <div class="thread-avatar">K</div>
-            <div class="thread-content">
-              <h4><a href="#">Xiaomi Redmi 9A FRP লক বাইপাস করার সঠিক পদ্ধতি?</a></h4>
-              <div class="thread-meta">
-                <span class="thread-tag solved">✅ সমাধান</span>
-                <span>👤 করিম স্যার</span>
-                <span>⏰ ৫ ঘণ্টা আগে</span>
-                <span>📂 অ্যান্ড্রয়েড সফটওয়্যার</span>
-              </div>
-            </div>
-            <div class="thread-stats">
-              <strong>১৮</strong>
-              <span>রিপ্লাই</span>
-            </div>
-          </div>
-
-          <div class="thread-item">
-            <div class="thread-avatar">S</div>
-            <div class="thread-content">
-              <h4><a href="#">iPhone 11 Pro মাইক্রোফোন কাজ করছে না - হার্ডওয়্যার নাকি সফটওয়্যার?</a></h4>
-              <div class="thread-meta">
-                <span>👤 সাব্বির</span>
-                <span>⏰ ৮ ঘণ্টা আগে</span>
-                <span>📂 আইফোন রিপেয়ার</span>
-              </div>
-            </div>
-            <div class="thread-stats">
-              <strong>১২</strong>
-              <span>রিপ্লাই</span>
-            </div>
-          </div>
-
-          <div class="thread-item">
-            <div class="thread-avatar">M</div>
-            <div class="thread-content">
-              <h4><a href="#">UFI Box দিয়ে EMMC রিডিং করার সময় এরর আসছে - সাহায্য চাই</a></h4>
-              <div class="thread-meta">
-                <span>👤 মাসুম</span>
-                <span>⏰ ১২ ঘণ্টা আগে</span>
-                <span>📂 টুলস ও বক্স</span>
-              </div>
-            </div>            <div class="thread-stats">
-              <strong>৯</strong>
-              <span>রিপ্লাই</span>
-            </div>
-          </div>
-
-          <div class="thread-item">
-            <div class="thread-avatar">A</div>
-            <div class="thread-content">
-              <h4><a href="#">Vivo Y20 ডিসপ্লে ব্ল্যাক কিন্তু ফোন রিং করছে - সমাধান?</a></h4>
-              <div class="thread-meta">
-                <span>👤 আল আমিন</span>
-                <span>⏰ ১ দিন আগে</span>
-                <span>📂 হার্ডওয়্যার জোন</span>
-              </div>
-            </div>
-            <div class="thread-stats">
-              <strong>৩১</strong>
-              <span>রিপ্লাই</span>
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-      <!-- Right Sidebar -->
-      <div class="sidebar">
         
-        <!-- Stats Card -->
-        <div class="sidebar-card">
-          <h3>📈 ফোরাম স্ট্যাটস</h3>
-          <div class="stat-row">
-            <span>মোট সদস্য</span>
-            <span>১,২৩৪</span>
-          </div>
-          <div class="stat-row">
-            <span>সক্রিয় সদস্য</span>
-            <span>৩৪২</span>
-          </div>
-          <div class="stat-row">
-            <span>মোট থ্রেড</span>
-            <span>৫,৬৭৮</span>
-          </div>
-          <div class="stat-row">
-            <span>মোট পোস্ট</span>
-            <span>২৩,৪৫০</span>
-          </div>
+        <div class="form-group" id="passGroup">
+          <label>পাসওয়ার্ড</label>
+          <input type="password" id="password" placeholder="******">
+          <!-- Forgot Password Link -->
+          <a class="forgot-link" id="forgotPassBtn">পাসওয়ার্ড ভুলে গেছেন?</a>
         </div>
+        
+        <button id="authBtn" class="btn btn-primary">লগইন</button>
+        
+        <div class="divider">অথবা</div>
+        <button id="googleBtn" class="btn btn-google">
+          <img src="https://www.gstatic.com/firebasejs/ui/2.0.0/images/auth/google.svg" width="18" alt="Google">
+          Google দিয়ে এগিয়ে যান
+        </button>
 
-        <!-- Top Contributors -->        <div class="sidebar-card">
-          <h3>🏆 টপ কন্ট্রিবিউটর</h3>
-          
-          <div class="contributor-item">
-            <div class="contributor-avatar">১</div>
-            <div class="contributor-info">
-              <div class="contributor-name">মাস্টার রহিম <span class="badge badge-master">মাস্টার</span></div>
-              <div class="contributor-points">৪,৮৫০ পয়েন্ট</div>
-            </div>
-          </div>
-          
-          <div class="contributor-item">
-            <div class="contributor-avatar">২</div>
-            <div class="contributor-info">
-              <div class="contributor-name">টেক করিম <span class="badge badge-expert">এক্সপার্ট</span></div>
-              <div class="contributor-points">৩,৯২০ পয়েন্ট</div>
-            </div>
-          </div>
-          
-          <div class="contributor-item">
-            <div class="contributor-avatar">৩</div>
-            <div class="contributor-info">
-              <div class="contributor-name">সাব্বির টেক <span class="badge badge-technician">টেকনিশিয়ান</span></div>
-              <div class="contributor-points">২,৭৮০ পয়েন্ট</div>
-            </div>
-          </div>
-          
-        </div>
-
-        <!-- Quick Links -->
-        <div class="sidebar-card">
-          <h3>⚡ দ্রুত লিংক</h3>
-          <div class="quick-links">
-            <a href="#">📚 ভিডিও টিউটোরিয়াল</a>
-            <a href="#">📐 ডায়াগ্রাম ডাউনলোড</a>
-            <a href="#">🛠️ টুলস ড্রাইভার</a>
-            <a href="#">💼 জব ও ফ্রিল্যান্সিং</a>
-            <a href="#">❓ FAQ ও সাপোর্ট</a>
-          </div>
-        </div>
-
-        <!-- GSMFIX Promo -->
-        <div class="sidebar-card" style="border: 2px solid var(--orange); text-align: center; background: linear-gradient(145deg, #181818, #221100);">
-          <h3 style="color: var(--orange); margin-bottom: 0.5rem;">🎓 GSMFIX Training</h3>
-          <p style="font-size: 0.85rem; color: var(--text-muted); margin-bottom: 1rem;">প্রফেশনাল মোবাইল সার্ভিসিং কোর্সে ভর্তি হোন</p>
-          <a href="#" class="btn btn-primary" style="width:100%;">কোর্স দেখুন →</a>
-        </div>
-
+        <p id="errorBox" class="error-msg"></p>
+        <p class="toggle-auth" id="toggleAuth">একাউন্ট নেই? <span id="toggleText">রেজিস্ট্রেশন করুন</span></p>
       </div>
-    </div>  </div>
+    </div>
 
-  <!-- Footer -->
-  <footer>
-    <div class="brand">GSMFIX Training Center</div>
-    <p>কারওয়ান বাজার, ট্রপিক্যাল নুর টাওয়ার - লেভেল ১০, ঢাকা</p>
-    <p>📞 +8801XXX-XXXXXX | ✉️ support@gsmfixtraining.com</p>
-    <p style="margin-top: 1rem; font-size: 0.8rem;">© 2026 GSMFIX. সর্বস্বত্ব সংরক্ষিত</p>
-  </footer>
+    <!-- Verification & Dashboard Pages (আগের মতোই থাকবে) -->
+    <div id="verifyPage" class="hidden">
+      <div class="auth-card">
+        <h2 style="color:var(--orange);">ইমেইল ভেরিফিকেশন</h2>
+        <p style="margin: 1.5rem 0;">We have sent you a verification email to <br><span id="userEmailDisplay" style="color:var(--orange); font-weight:bold;"></span>.<br>Please verify it and log in.</p>
+        <button onclick="location.reload()" class="btn btn-primary">লগইন পেজে যান</button>
+      </div>
+    </div>
 
-  <!-- Mobile Menu Toggle Script -->
-  <script>
-    function toggleMenu() {
-      const menu = document.getElementById('mobileMenu');
-      menu.classList.toggle('active');
+    <div id="dashboardPage" class="hidden">
+      <div style="text-align: center; padding: 3rem 1rem;">
+        <h1 style="color:var(--orange);">🛠️ GSMFIX ফোরাম</h1>
+        <p>লগইন সফল হয়েছে। ফোরামে স্বাগতম!</p>
+      </div>
+    </div>
+
+  </div>
+
+<!-- ... (আপনার আগের HTML এবং CSS সব ঠিক আছে, শুধু স্ক্রিপ্ট অংশটি নিচেরটি দিয়ে রিপ্লেস করুন) ... -->
+
+<script type="module">
+  // ১. Firebase প্রয়োজনীয় ফাংশনগুলো ইমপোর্ট করা
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+  import { 
+    getAuth, 
+    signInWithEmailAndPassword, 
+    createUserWithEmailAndPassword, 
+    onAuthStateChanged, 
+    signOut, 
+    sendEmailVerification, 
+    sendPasswordResetEmail, 
+    GoogleAuthProvider, 
+    signInWithPopup 
+  } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-auth.js";
+
+  // ২. আপনার Firebase কনফিগারেশন
+  const firebaseConfig = {
+    apiKey: "AIzaSyBBXWXzMd5YECj9RVceFogPr7nYtxZXeBA",
+    authDomain: "gsmfix-e325e.firebaseapp.com",
+    projectId: "gsmfix-e325e",
+    storageBucket: "gsmfix-e325e.firebasestorage.app",
+    messagingSenderId: "1014692774714",
+    appId: "1:1014692774714:web:4424babb0e0f430c738603"
+  };
+
+  // ৩. Firebase ইনিশিয়ালাইজ করা
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const googleProvider = new GoogleAuthProvider();
+
+  // ৪. DOM এলিমেন্টগুলো সিলেক্ট করা
+  const authPage = document.getElementById('authPage');
+  const verifyPage = document.getElementById('verifyPage');
+  const dashboardPage = document.getElementById('dashboardPage');
+  const emailInput = document.getElementById('email');
+  const passwordInput = document.getElementById('password');
+  const authBtn = document.getElementById('authBtn');
+  const googleBtn = document.getElementById('googleBtn');
+  const forgotPassBtn = document.getElementById('forgotPassBtn');
+  const errorBox = document.getElementById('errorBox');
+  const logoutBtn = document.getElementById('logoutBtn');
+  const toggleAuth = document.getElementById('toggleAuth');
+
+  let isLoginMode = true; // ডিফল্ট মোড লগইন
+
+  // ৫. পেজ পরিবর্তন করার ফাংশন
+  function showPage(page) {
+    authPage.classList.add('hidden');
+    verifyPage.classList.add('hidden');
+    dashboardPage.classList.add('hidden');
+    logoutBtn.classList.add('hidden');
+
+    if(page === 'auth') authPage.classList.remove('hidden');
+    if(page === 'verify') verifyPage.classList.remove('hidden');
+    if(page === 'dashboard') {
+      dashboardPage.classList.remove('hidden');
+      logoutBtn.classList.remove('hidden');
     }
-  </script>
+  }
 
+  // ৬. অথেনটিকেশন স্টেট অবজার্ভার (লগইন আছে কি নেই চেক করা)
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // যদি গুগল দিয়ে লগইন করে অথবা ইমেইল ভেরিফাইড হয়
+      if (user.emailVerified || user.providerData[0].providerId === 'google.com') {
+        showPage('dashboard');
+      } else {
+        // ইমেইল ভেরিফাইড না হলে ভেরিফিকেশন পেজে পাঠাও
+        document.getElementById('userEmailDisplay').innerText = user.email;
+        showPage('verify');
+        signOut(auth); // লগআউট করে রাখা যাতে ভেরিফাই করে আবার লগইন করতে হয়
+      }
+    } else {
+      showPage('auth');
+    }
+  });
+
+  // ৭. 🛠️ মেইন লগইন/সাইনআপ বাটন লজিক (এটি ফিক্স করা হয়েছে)
+  authBtn.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    const password = passwordInput.value.trim();
+    errorBox.className = "error-msg status-red";
+    errorBox.innerText = "";
+
+    if (!email || !password) {
+      errorBox.innerText = "ইমেইল এবং পাসওয়ার্ড দিন।";
+      return;
+    }
+
+    try {
+      if (isLoginMode) {
+        // লগইন লজিক
+        await signInWithEmailAndPassword(auth, email, password);
+      } else {
+        // সাইনআপ লজিক
+        const userCredential = await createUserWithEmailAndPassword(auth, email, password);
+        await sendEmailVerification(userCredential.user);
+        errorBox.className = "error-msg status-green";
+        errorBox.innerText = "রেজিস্ট্রেশন সফল! ইমেইল ভেরিফাই করুন।";
+        // সাইন-আপের পর অটো ভেরিফিকেশন পেজে যাবে স্টেট চেঞ্জের মাধ্যমে
+      }
+    } catch (error) {
+      console.error("Auth Error:", error.code);
+      if (error.code === 'auth/invalid-credential' || error.code === 'auth/wrong-password' || error.code === 'auth/user-not-found') {
+        errorBox.innerText = "Email or password is incorrect";
+      } else if (error.code === 'auth/email-already-in-use') {
+        errorBox.innerText = "User already exists. Please sign in";
+      } else if (error.code === 'auth/weak-password') {
+        errorBox.innerText = "পাসওয়ার্ড অন্তত ৬ অক্ষরের হতে হবে।";
+      } else {
+        errorBox.innerText = "ভুল হয়েছে: " + error.message;
+      }
+    }
+  });
+
+  // ৮. গুগল সাইন-ইন লজিক
+  googleBtn.addEventListener('click', async () => {
+    try {
+      await signInWithPopup(auth, googleProvider);
+    } catch (error) {
+      errorBox.innerText = "গুগল লগইন ব্যর্থ হয়েছে।";
+    }
+  });
+
+  // ৯. পাসওয়ার্ড রিসেট লজিক
+  forgotPassBtn.addEventListener('click', async () => {
+    const email = emailInput.value.trim();
+    if (!email) {
+      errorBox.className = "error-msg status-red";
+      errorBox.innerText = "আগে আপনার ইমেইলটি লিখুন।";
+      return;
+    }
+    try {
+      await sendPasswordResetEmail(auth, email);
+      errorBox.className = "error-msg status-green";
+      errorBox.innerText = "পাসওয়ার্ড রিসেট লিঙ্ক আপনার ইমেইলে পাঠানো হয়েছে।";
+    } catch (error) {
+      errorBox.className = "error-msg status-red";
+      errorBox.innerText = "রিসেট করা যায়নি: " + error.message;
+    }
+  });
+
+  // ১০. মোড টগল (লগইন <-> সাইনআপ)
+  toggleAuth.addEventListener('click', () => {
+    isLoginMode = !isLoginMode;
+    document.getElementById('authTitle').innerText = isLoginMode ? "লগইন করুন" : "রেজিস্ট্রেশন করুন";
+    authBtn.innerText = isLoginMode ? "লগইন" : "সাইন আপ";
+    document.getElementById('toggleText').innerText = isLoginMode ? "রেজিস্ট্রেশন করুন" : "লগইন করুন";
+    document.getElementById('passGroup').querySelector('.forgot-link').style.display = isLoginMode ? "block" : "none";
+    errorBox.innerText = "";
+  });
+
+  // ১১. লগআউট
+  logoutBtn.addEventListener('click', () => signOut(auth));
+
+</script>
 </body>
 </html>
