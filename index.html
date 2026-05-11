@@ -385,65 +385,41 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
   <script>
      
 const slides = document.querySelectorAll(".slide");
+const slider = document.getElementById("slider");
 
 let index = 0;
 
-/* AUTO SLIDE */
-setInterval(()=>{
-
+function goToSlide(newIndex) {
   slides[index].classList.remove("active");
 
-  index++;
-
-  if(index >= slides.length){
-    index = 0;
-  }
+  index = (newIndex + slides.length) % slides.length;
 
   slides[index].classList.add("active");
+}
 
-},3000);
+/* AUTO LOOP */
+setInterval(() => {
+  goToSlide(index + 1);
+}, 3000);
 
-/* TOUCH SWIPE */
-
+/* SWIPE */
 let startX = 0;
 
-const slider = document.getElementById("slider");
-
-slider.addEventListener("touchstart",(e)=>{
+slider?.addEventListener("touchstart", (e) => {
   startX = e.touches[0].clientX;
 });
 
-slider.addEventListener("touchend",(e)=>{
-
+slider?.addEventListener("touchend", (e) => {
   let endX = e.changedTouches[0].clientX;
+  let diff = startX - endX;
 
-  if(startX - endX > 50){
-
-    slides[index].classList.remove("active");
-
-    index++;
-
-    if(index >= slides.length){
-      index = 0;
-    }
-
-    slides[index].classList.add("active");
-
+  if (diff > 50) {
+    goToSlide(index + 1); // next
+  } 
+  else if (diff < -50) {
+    goToSlide(index - 1); // prev
   }
-
-  if(endX - startX > 50){
-
-    slides[index].classList.remove("active");
-
-    index--;
-
-    if(index < 0){
-      index = slides.length - 1;
-    }
-
-    slides[index].classList.add("active");
-
-  }
+});
 
 });
     function toggleMenu() {
