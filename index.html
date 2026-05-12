@@ -383,44 +383,7 @@ src="https://www.facebook.com/tr?id=1246760353735572&ev=PageView&noscript=1"/>
   </div>
  <!-- 🔹 JavaScript -->
   <script>
-     
-const slides = document.querySelectorAll(".slide");
-const slider = document.getElementById("slider");
-
-let index = 0;
-
-function goToSlide(newIndex) {
-  slides[index].classList.remove("active");
-
-  index = (newIndex + slides.length) % slides.length;
-
-  slides[index].classList.add("active");
-}
-
-/* AUTO LOOP */
-setInterval(() => {
-  goToSlide(index + 1);
-}, 3000);
-
-/* SWIPE */
-let startX = 0;
-
-slider?.addEventListener("touchstart", (e) => {
-  startX = e.touches[0].clientX;
-});
-
-slider?.addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
-  let diff = startX - endX;
-
-  if (diff > 50) {
-    goToSlide(index + 1); // next
-  } 
-  else if (diff < -50) {
-    goToSlide(index - 1); // prev
-  }
-});
-    function toggleMenu() {
+         function toggleMenu() {
       const nav = document.getElementById('navLinks');
       nav.classList.toggle('active');
     }
@@ -890,37 +853,6 @@ class="whatsapp-float" target="_blank">
 </a>
   <footer>
      <h2>GSM<span>FIX</span> Trainers</h2>
-
-<div class="slider" id="slider">
-
-  <!-- TRAINER 1 -->
-  <div class="slide active">
-    <img src="trainer1.jpg" alt="">
-    <h3>Rahat Ahmed Rasel</h3>
-    <p>Programming & Hardware Trainer</p>
-  </div>
-
-  <!-- TRAINER 2 -->
-  <div class="slide">
-    <img src="trainer2.jpg" alt="">
-    <h3>Yusuf Sheikh</h3>
-    <p>Schematic & Electronics Trainer</p>
-  </div>
-
-  <!-- TRAINER 3 -->
-  <div class="slide">
-    <img src="trainer3.jpg" alt="">
-    <h3>Mahburur Rahman Shimul</h3>
-    <p>Schematic & Electronics Trainer</p>
-  </div>
-
-  <!-- TRAINER 4 -->
-  <div class="slide">
-    <img src="trainer4.jpg" alt="">
-    <h3>Rashed Al Noman</h3>
-    <p>Practical Senior Trainer</p>
-  </div>
-
     <div class="container">
       <p>&copy; 2020 GSMFIX Training Center. সর্বস্বত্ব সংরক্ষিত।</p>
       <p>মোবাইল: 01986718011 | ইমেইল: support.gsmfixtraining@gmail.com</p>
