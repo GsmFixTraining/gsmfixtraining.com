@@ -26,32 +26,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
-     .slider{
-  position:relative;
-  max-width:320px;
-  margin:auto;
-  height:260px;
-}
 
-.slide{
-  position:absolute;
-  width:100%;
-  left:0;
-  top:0;
-
-  opacity:0;
-  transform:translateX(40px);
-
-  transition:
-    opacity .6s ease,
-    transform .6s ease;
-}
-
-.slide.active{
-  opacity:1;
-  transform:translateX(0);
-  z-index:1;
-}
  /* 🔹 Reset & Base */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
@@ -898,37 +873,33 @@ Special PDF,
     }
   }
 </style>
-       <h2>GSM<span>FIX</span> Trainers</h2>
+<!-- TRAINER 1 -->
+<div class="slide active">
+  <img src="trainer1.jpg" alt="">
+  <h3>Rahat Ahmed Rasel</h3>
+  <p>Programming & Hardware Trainer</p>
+</div>
 
-<div class="slider" id="slider">
+<!-- TRAINER 2 -->
+<div class="slide">
+  <img src="trainer2.png" alt="">
+  <h3>Yusuf Sheikh</h3>
+  <p>Schematic & Electronics Trainer</p>
+</div>
 
-  <!-- TRAINER 1 -->
-  <div class="slide active">
-    <img src="trainer1.jpg" alt="">
-    <h3>Rahat Ahmed Rasel</h3>
-    <p>Programming & Hardware Trainer</p>
-  </div>
+<!-- TRAINER 3 -->
+<div class="slide">
+  <img src="trainer3.jpeg" alt="">
+  <h3>Mahburur Rahman Shimul</h3>
+  <p>Schematic & Electronics Trainer</p>
+</div>
 
-  <!-- TRAINER 2 -->
-  <div class="slide active">
-    <img src="trainer2.png" alt="">
-    <h3>Yusuf Sheikh</h3>
-    <p>Schematic & Electronics Trainer</p>
-  </div>
-
-  <!-- TRAINER 3 -->
-  <div class="slide active">
-    <img src="trainer3.jpeg" alt="">
-    <h3>Mahburur Rahman Shimul</h3>
-    <p>Schematic & Electronics Trainer</p>
-  </div>
-
-  <!-- TRAINER 4 -->
-  <div class="slide active">
-    <img src="trainer4.png" alt="">
-    <h3>Rashed Al Noman</h3>
-    <p>Practical Senior Trainer</p>
-  </div>
+<!-- TRAINER 4 -->
+<div class="slide">
+  <img src="trainer4.png" alt="">
+  <h3>Rashed Al Noman</h3>
+  <p>Practical Senior Trainer</p>
+</div>
 </section>
   </div>
  <a href="https://wa.me/8801986718011?text=আমি%20মোবাইল%20সার্ভিসিং%20কোর্স%20সম্পর্কে%20জানতে%20চাই" 
